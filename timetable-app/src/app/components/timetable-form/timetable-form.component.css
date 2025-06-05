@@ -1,0 +1,116 @@
+.table-wrapper {
+  width: 60%;
+  margin-left: 5px;
+  background: white;
+  border-radius: 8px;
+  padding: 24px 28px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.compact-table .mat-header-cell,
+.compact-table .mat-cell {
+  padding: 12px 16px !important;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.compact-input .mat-form-field-wrapper {
+  padding-bottom: 0px !important;
+  margin-bottom: -12px;
+}
+
+.compact-input .mat-form-field-infix {
+  font-size: 16px;
+  padding: 10px 0 !important;
+  min-height: 44px;
+}
+
+input.mat-input-element,
+.input-field {
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #3f51b5;
+  outline: none;
+  box-shadow: 0 0 6px rgba(63, 81, 181, 0.3);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1 !important;
+  -webkit-appearance: auto !important;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: auto;
+}
+
+.input-table label {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 6px;
+}
+
+.summary-section {
+  margin-top: 16px;
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+.btn-primary,
+.mat-raised-button[color="primary"] {
+  background-color: #3f51b5;       
+  color: white;                     
+  border: none;
+  padding: 12px 24px;              
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;               
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: none;             
+  margin-top: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);  
+}
+
+.btn-primary:disabled,
+.mat-raised-button[color="primary"]:disabled {
+  background-color: #9fa8da;        
+  cursor: not-allowed;
+}
+
+.btn-primary:hover:not(:disabled),
+.mat-raised-button[color="primary"]:hover:not(:disabled) {
+  background-color: #303f9f;        
+}
+.form-container {
+  width: 90%;
+  max-width: 720px;
+  margin: 32px auto;
+  background: linear-gradient(135deg, #ffffff, #f4f7fb);
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+

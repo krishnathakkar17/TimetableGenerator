@@ -1,0 +1,27 @@
+<div class="table-container mat-elevation-z8">
+  <h2 class="section-title">Generated Timetable</h2>
+
+  <table mat-table [dataSource]="dataSource" class="mat-table interactive-table" matSort>
+    <ng-container matColumnDef="period">
+      <th mat-header-cell *matHeaderCellDef>Period</th>
+      <td mat-cell *matCellDef="let row; let ri = index">Period {{ ri + 1 }}</td>
+    </ng-container>
+
+    <ng-container *ngFor="let day of dayColumns; let i = index" [matColumnDef]="day">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Day {{ i + 1 }}</th>
+      <td mat-cell *matCellDef="let row">{{ row[day] }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  </table>
+
+  <div class="action-buttons">
+    <button mat-stroked-button color="primary" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon> Back to Input
+    </button>
+    <button mat-raised-button color="primary" (click)="regenerateTimetable()">
+      <mat-icon>refresh</mat-icon> Regenerate Timetable
+    </button>
+  </div>
+</div>

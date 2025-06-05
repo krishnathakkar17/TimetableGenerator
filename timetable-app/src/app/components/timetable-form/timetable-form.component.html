@@ -1,0 +1,88 @@
+<div class="form-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-wrapper">
+    <table class="input-table">
+      <tbody>
+        <tr>
+          <td><label for="workingDays">Working Days (1-7):</label></td>
+          <td>
+            <input
+              id="workingDays"
+              type="number"
+              formControlName="workingDays"
+              min="1"
+              max="7"
+              required
+              class="input-field"
+            />
+          </td>
+          <td>
+            <span
+              *ngIf="form.get('workingDays')?.invalid && form.get('workingDays')?.touched"
+              class="error-message"
+            >
+              Please enter a valid number between 1 and 7.
+            </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="subjectsPerDay">Subjects Per Day (1-8):</label></td>
+          <td>
+            <input
+              id="subjectsPerDay"
+              type="number"
+              formControlName="subjectsPerDay"
+              min="1"
+              max="8"
+              required
+              class="input-field"
+            />
+          </td>
+          <td>
+            <span
+              *ngIf="form.get('subjectsPerDay')?.invalid && form.get('subjectsPerDay')?.touched"
+              class="error-message"
+            >
+              Please enter a valid number between 1 and 8.
+            </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="totalSubjects">Total Subjects (1+):</label></td>
+          <td>
+            <input
+              id="totalSubjects"
+              type="number"
+              formControlName="totalSubjects"
+              min="1"
+              required
+              class="input-field"
+            />
+          </td>
+          <td>
+            <span
+              *ngIf="form.get('totalSubjects')?.invalid && form.get('totalSubjects')?.touched"
+              class="error-message"
+            >
+              Please enter a number greater than 0.
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br />
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Calculate Total Hours
+    </button>
+
+    <p *ngIf="error" class="error-message">{{ error }}</p>
+  </form>
+</div>

@@ -1,0 +1,79 @@
+<div class="table-container mat-elevation-z8">
+  <table mat-table [dataSource]="subjects" class="mat-table interactive-table" matSort>
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let subject; let i = index">{{ i + 1 }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Subject Name</th>
+      <td mat-cell *matCellDef="let subject; let i = index">
+        <mat-form-field appearance="outline" class="form-field compact-input">
+          <input
+            matInput
+            [(ngModel)]="subject.name"
+            (ngModelChange)="onChange()"
+            placeholder="Enter subject name"
+            required
+            class="input-field"
+          />
+          <mat-hint>Enter a subject (e.g., Math)</mat-hint>
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hours">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Hours</th>
+      <td mat-cell *matCellDef="let subject; let i = index">
+        <mat-form-field appearance="outline" class="form-field compact-input">
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="subject.hours"
+            (ngModelChange)="onHoursChange(i, $any($event.target).valueAsNumber)"
+            min="0"
+            required
+            class="input-field number-input"
+          />
+          <mat-hint>Hours per week</mat-hint>
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let subject; let i = index">
+        <button mat-icon-button color="warn" (click)="removeSubject(i)" title="Remove Subject">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsWithIndex"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsWithIndex;" class="table-row"></tr>
+  </table>
+
+</div>
+
+<div class="summary-section">
+  <p class="summary-text">
+    <strong>Total Hours Assigned:</strong> {{ totalAssignedHours }} / {{ totalHours }}
+    <mat-progress-bar
+      mode="determinate"
+      [value]="(totalAssignedHours / totalHours) * 100"
+      class="hours-progress"
+    ></mat-progress-bar>
+  </p>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onGenerate()"
+    [disabled]="!valid"
+    class="generate-button"
+  >
+    <mat-icon>event</mat-icon> Generate Timetable
+  </button>
+
+  <p *ngIf="error" class="error-message animate-error">{{ error }}</p>
+</div>
