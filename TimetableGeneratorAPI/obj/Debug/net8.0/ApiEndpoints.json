@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "TimetableController",
+    "Method": "CalculateTotalHours",
+    "RelativePath": "api/Timetable/calculate-total-hours",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "TimetableGeneratorAPI.Models.TimetableInputDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TimetableController",
+    "Method": "GenerateTimetable",
+    "RelativePath": "api/Timetable/generate-timetable",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "TimetableGeneratorAPI.Models.TimetableRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
